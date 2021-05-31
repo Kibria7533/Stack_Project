@@ -10,14 +10,14 @@ const resolvers = {
     
     async Customer (_, args, { user }) {
       
-      if (!user && user.role=="customer") {
+      if (!user && user.role!=="customer") {
         throw new Error('You are not authenticated!')
       }
       return {username:user.email,role:user.role,email:user.email}
     },
     async WholeSeller (_, args, { user }) {
       
-      if (!user && user.role=="wholeseller") {
+      if (!user && user.role! =="wholeseller") {
         throw new Error('You are not authenticated!')
       }
       return {username:user.email,role:user.role,email:user.email}
@@ -25,14 +25,14 @@ const resolvers = {
   ,
   async BikeShare (_, args, { user }) {
         
-    if (!user && user.role=="bikeshare") {
+    if (!user && user.role!=="bikeshare") {
       throw new Error('You are not authenticated!')
     }
     return {username:user.email,role:user.role,email:user.email}
   },
   async Admin (_, args, { user }) {
         
-    if (!user && user.role=="admin") {
+    if (!user && user.role!=="admin") {
       throw new Error('You are not authenticated!')
     }
     return {username:user.email,role:user.role,email:user.email}
